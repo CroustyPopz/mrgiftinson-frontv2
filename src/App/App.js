@@ -5,16 +5,35 @@ import Welcome from '../Welcome/Welcome';
 import Ask from '../Ask/Ask';
 import Result from '../Result/Result';
 
+function fetchData(answer) {
+  const url = 'http://mrgiftinson.com/api/index.php?function=getNewStep&reponse=' + answer;
+  fetch(url)
+  .then(function(response) {console.log(response)})
+  .catch(function(error) {error})
+}
+
 class App extends Component {
   constructor(props) {
     super(props);
+    this.handleAnswer = this.handleAnswer.bind(this);
     this.state = {
       step: 'Welcome',
-      steps: {}
+      steps: {
+        'Welcome': <Welcome onSelectAnswer={this.handleAnswer} />,
+        'Ask': <Ask onSelectAnswer={this.handleAnswer} question="Est-ce que les roses sont rouges ?" answers={['reponse1', 'reponse2', 'reponse3']} />,
+        'Result': <Result onSelectAnswer={this.handleAnswer} />
+      }
     };
-    this.state.steps['Welcome'] = <Welcome />;
-    this.state.steps['Ask'] = <Ask />;
-    this.state.steps['Result'] = <Result />;
+  }
+
+  handleAnswer(answer) {
+    console.log(answer);
+    fetchData(answer);
+    if (answer === 'start' || answer === 'no') {
+      this.setState({step: 'Ask'})
+    } else {
+      this.setState({step: 'Result'})
+    }
   }
 
   getCurrentStep() {
@@ -28,9 +47,9 @@ class App extends Component {
           <img src={logo} className="App-logo" alt="logo" />
           <h2>Welcome to Mr.Giftinson</h2>
         </div>
-        <p className="App-intro">
-          {this.getCurrentStep}
-        </p>
+        <div className="App-body">
+          {this.getCurrentStep()}
+        </div>
       </div>
     );
   }
