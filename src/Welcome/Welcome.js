@@ -19,13 +19,13 @@ class Welcome extends Component {
         <div className="Welcome-header">
           <img src={mascotte} className="Welcome-mascotte" alt="mascotte" />
           <div className="speech-bubble">
-            <h2>Besoin d'aide pour trouver le cadeau idéal ? Je suis là !</h2>
+            <h2>Need to find a really good gift? I'm here!</h2>
           </div>
           <img src={logo} className="Welcome-logo" alt="logo" />
         </div>
         <div className="Welcome-responses">
           <div className="bubble" onClick={(e) => this.handleClick('start')}>
-            <h2>Commencer !</h2>
+            <h2>Start here!</h2>
           </div>
         </div>
       </div>

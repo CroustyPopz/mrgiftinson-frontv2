@@ -20,7 +20,7 @@ class App extends Component {
       step: 'Welcome',
       steps: {
         'Welcome': <Welcome onSelectAnswer={this.handleAnswer} />,
-        'Ask': <Ask onSelectAnswer={this.handleAnswer} question="Est-ce que les roses sont rouges ?" answers={['reponse1', 'reponse2', 'reponse3']} />,
+        'Ask': <Ask onSelectAnswer={this.handleAnswer} question="Does your target like puzzle game?" answers={['Yes', 'No', 'Maybe']} />,
         'Result': <Result onSelectAnswer={this.handleAnswer} />
       }
     };
@@ -56,3 +56,5 @@ class App extends Component {
 }
 
 export default App;
+
+// Créer un système de score repésentant le process de l'IA.

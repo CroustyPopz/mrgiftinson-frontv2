@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import './Result.css';
 import mascotte from '../../public/mrgiftinson-mascotte.png';
-import logo from '../../public/gift-icon.png';
 
 class Result extends Component {
   constructor(props) {
@@ -23,16 +22,16 @@ class Result extends Component {
         <div className="Result-header">
           <img src={mascotte} className="Result-mascotte" alt="mascotte" />
           <div className="speech-bubble">
-            <h2>Que pensez vous de ce cadeau ?</h2>
+            <h2>What do you think about this gift?</h2>
           </div>
-          <img src="https://images-na.ssl-images-amazon.com/images/I/71WUR98GrqL._SX522_.jpg" onClick={(e) => this.goTo()} className="Result-logo" alt="logo" />
+          <img src="https://images-na.ssl-images-amazon.com/images/I/71WUR98GrqL._SX522_.jpg" className="Result-logo" alt="logo" />
         </div>
         <div className="Result-responses">
-          <div className="bubble" onClick={(e) => this.handleClick('yes')}>
-            <h2>Oui !</h2>
+          <div className="bubble" onClick={(e) => this.goTo()}>
+            <h2>Got it!</h2>
           </div>
           <div className="bubble" onClick={(e) => this.handleClick('no')}>
-            <h2>Pas vraiment :/</h2>
+            <h2>Borring...</h2>
           </div>
         </div>
       </div>
