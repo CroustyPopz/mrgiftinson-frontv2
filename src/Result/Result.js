@@ -19,14 +19,14 @@ class Result extends Component {
   render() {
     return (
       <div className="Result">
-        <div className="Result-header">
-          <img src={mascotte} className="Result-mascotte" alt="mascotte" />
+        <div className="header">
+          <img src={mascotte} className="mascotte" alt="mascotte" />
           <div className="speech-bubble">
             <h2>What do you think about this gift?</h2>
           </div>
-          <img src="https://images-na.ssl-images-amazon.com/images/I/71WUR98GrqL._SX522_.jpg" className="Result-logo" alt="logo" />
+          <img src="https://images-na.ssl-images-amazon.com/images/I/71WUR98GrqL._SX522_.jpg" className="logo" alt="logo" />
         </div>
-        <div className="Result-responses">
+        <div className="responses">
           <div className="bubble" onClick={(e) => this.goTo()}>
             <h2>Got it!</h2>
           </div>

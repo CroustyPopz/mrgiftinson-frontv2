@@ -24,14 +24,14 @@ class Ask extends Component {
   render() {
     return (
       <div className="Ask">
-        <div className="Ask-header">
-          <img src={mascotte} className="Ask-mascotte" alt="mascotte" />
+        <div className="header">
+          <img src={mascotte} className="mascotte" alt="mascotte" />
           <div className="speech-bubble">
             <h2>{this.props.question}</h2>
           </div>
-          <img src={logo} className="Ask-logo" alt="logo" />
+          <img src={logo} className="logo" alt="logo" />
         </div>
-        <div className="Ask-responses">
+        <div className="responses">
           {this.renderAnswers()}
         </div>
       </div>

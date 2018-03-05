@@ -16,14 +16,14 @@ class Welcome extends Component {
   render() {
     return (
       <div className="Welcome">
-        <div className="Welcome-header">
-          <img src={mascotte} className="Welcome-mascotte" alt="mascotte" />
+        <div className="header">
+          <img src={mascotte} className="mascotte" alt="mascotte" />
           <div className="speech-bubble">
             <h2>Need to find a really good gift? I'm here!</h2>
           </div>
-          <img src={logo} className="Welcome-logo" alt="logo" />
+          <img src={logo} className="logo" alt="logo" />
         </div>
-        <div className="Welcome-responses">
+        <div className="responses">
           <div className="bubble" onClick={(e) => this.handleClick('start')}>
             <h2>Start here!</h2>
           </div>
