@@ -45,7 +45,7 @@ class App extends Component {
       <div className="App">
         <div className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
-          <h2>Welcome to Mr.Giftinson</h2>
+          <h2 className="header-title" >Welcome to Mr.Giftinson</h2>
         </div>
         <div className="App-body">
           {this.getCurrentStep()}

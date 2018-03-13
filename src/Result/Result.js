@@ -21,10 +21,14 @@ class Result extends Component {
       <div className="Result">
         <div className="header">
           <img src={mascotte} className="mascotte" alt="mascotte" />
-          <div className="speech-bubble">
-            <h2>What do you think about this gift?</h2>
+          <div class="half">
+            <div className="comics-dialog">
+              <h2>What do you think about this gift?</h2>
+            </div>
           </div>
-          <img src="https://images-na.ssl-images-amazon.com/images/I/71WUR98GrqL._SX522_.jpg" className="logo" alt="logo" />
+          <div className="">
+            <img src="https://images-na.ssl-images-amazon.com/images/I/71WUR98GrqL._SX522_.jpg" className="logo result" alt="logo" />
+          </div>
         </div>
         <div className="responses">
           <div className="bubble" onClick={(e) => this.goTo()}>

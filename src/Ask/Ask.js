@@ -26,8 +26,10 @@ class Ask extends Component {
       <div className="Ask">
         <div className="header">
           <img src={mascotte} className="mascotte" alt="mascotte" />
-          <div className="speech-bubble">
-            <h2>{this.props.question}</h2>
+          <div class="half">
+            <div className="comics-dialog">
+              <h2>{this.props.question}</h2>
+            </div>
           </div>
           <img src={logo} className="logo" alt="logo" />
         </div>

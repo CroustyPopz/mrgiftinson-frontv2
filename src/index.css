@@ -2,8 +2,9 @@ body {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
-  /* background-color: #f39c12; */
-  background-image: url(http://avante.biz/wp-content/uploads/Cool-Macbook-Wallpapers/Cool-Macbook-Wallpapers-015.jpg);
+  /*background-color: #f39c12;*/
+  background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url(https://wallpapertag.com/wallpaper/full/6/9/1/125470-best-pop-art-background-1920x1080.jpg);
+  background-size: 100%;
 }
 
 /* Basic assets */
@@ -18,19 +19,45 @@ body {
 .logo {
   position: relative;
   width: 10%;
-  top: -17em;
+  top: 8em;
   left: 0em;
 }
 
+@keyframes splash {
+  0% {
+    transform: scale(0);
+    top: 125px;
+  }
+  60% {
+    transform: scale(1.25);
+    top: 120px;
+  }
+  100% {
+    transform: scale(1);
+    top: 125px;
+  }
+}
+
+.result {
+  border-radius: 50%;
+  background: url(https://images-na.ssl-images-amazon.com/images/I/71WUR98GrqL._SX522_.jpg);
+  animation-name: splash;
+  animation-duration: 0.75s;
+  /*transition: opacity 2s ease 0s;*/
+}
+
 .header {
+  text-align: center;
   height: 42em;
 }
+
+/* For responsivness */
 
 /* Speech Bubble */
 
 .speech-bubble {
   position: relative;
-  background: #e74c3c;
+  background: #7f8c8d55;
   border-radius: .4em;
 }
 
@@ -55,7 +82,7 @@ body {
   width: 0;
   height: 0;
   border: 30px solid transparent;
-  border-right-color: #e74c3c;
+  border-right-color: #7f8c8d55;
   border-left: 0;
   border-bottom: 0;
   margin-top: -15px;
@@ -66,14 +93,18 @@ body {
 
 .responses {
   display: flex;
+  background-color: #f39c1255;
   align-items: center;
   justify-content: center;
+  align-self: flex-end;
 }
 
 .bubble {
-  background: #e74c3c;
+  background: #f39c12;
   border-radius: .4em;
   cursor: pointer;
+  -webkit-filter: drop-shadow(0 4px 0 #a96c0b);
+  filter: drop-shadow(0 4px 0 #a96c0b);
 }
 
 .bubble {
@@ -87,4 +118,8 @@ body {
   font-weight: bold;
   font-size: 100%;
   text-shadow: 0 -0.05em 0.1em rgba(0,0,0,.3)
+}
+
+h2 {
+  font-weight: normal;
 }

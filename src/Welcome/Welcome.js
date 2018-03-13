@@ -18,8 +18,10 @@ class Welcome extends Component {
       <div className="Welcome">
         <div className="header">
           <img src={mascotte} className="mascotte" alt="mascotte" />
-          <div className="speech-bubble">
-            <h2>Need to find a really good gift? I'm here!</h2>
+          <div class="half">
+            <div class="comics-dialog">
+              <h2>Need to find a really good gift? I'm here!</h2>
+            </div>
           </div>
           <img src={logo} className="logo" alt="logo" />
         </div>
