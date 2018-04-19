@@ -21,13 +21,13 @@ class Result extends Component {
       <div className="Result">
         <div className="header">
           <img src={mascotte} className="mascotte" alt="mascotte" />
-          <div class="half">
+          <div className="half">
             <div className="comics-dialog">
               <h2>What do you think about this gift?</h2>
             </div>
           </div>
           <div className="">
-            <img src="https://images-na.ssl-images-amazon.com/images/I/71WUR98GrqL._SX522_.jpg" className="logo result" alt="logo" />
+            <img src="https://images-na.ssl-images-amazon.com/images/I/71WUR98GrqL._SX522_.jpg" className="result result-item" alt="logo" />
           </div>
         </div>
         <div className="responses">

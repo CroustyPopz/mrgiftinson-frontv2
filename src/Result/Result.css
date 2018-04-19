@@ -1,3 +1,33 @@
-.result {
+.result-item {
   cursor: pointer;
+  position: relative;
+  width: 20%;
+  top: 2em;
+  left: 0em;
+}
+
+.result {
+  border-radius: 50%;
+  animation-name: splash;
+  animation-duration: 0.75s;
+  /*transition: opacity 2s ease 0s;*/
+}
+
+@keyframes splash {
+  0% {
+    background: url(../../public/mrgiftinson-mascotte.png);
+    transform: scale(0);
+    top: 2em;
+  }
+  60% {
+    transform: scale(1.25);
+    top: 2em;
+  }
+  99% {
+    background: url(https://images-na.ssl-images-amazon.com/images/I/71WUR98GrqL._SX522_.jpg);
+  }
+  100% {
+    transform: scale(1);
+    top: 2em;
+  }
 }

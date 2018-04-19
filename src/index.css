@@ -3,7 +3,7 @@ body {
   padding: 0;
   font-family: sans-serif;
   /*background-color: #f39c12;*/
-  background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url(https://wallpapertag.com/wallpaper/full/6/9/1/125470-best-pop-art-background-1920x1080.jpg);
+  background: linear-gradient( rgba(0, 0, 0, 0), rgba(0, 0, 0, 0) ), url(../public/background.jpg);
   background-size: 100%;
 }
 
@@ -18,32 +18,33 @@ body {
 
 .logo {
   position: relative;
+  animation-name: shake;
+  animation-duration: 1s;
   width: 10%;
   top: 8em;
   left: 0em;
 }
 
-@keyframes splash {
-  0% {
-    transform: scale(0);
-    top: 125px;
-  }
-  60% {
-    transform: scale(1.25);
-    top: 120px;
-  }
-  100% {
-    transform: scale(1);
-    top: 125px;
-  }
+.logo:hover {
+  animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
 }
 
-.result {
-  border-radius: 50%;
-  background: url(https://images-na.ssl-images-amazon.com/images/I/71WUR98GrqL._SX522_.jpg);
-  animation-name: splash;
-  animation-duration: 0.75s;
-  /*transition: opacity 2s ease 0s;*/
+@keyframes shake {
+  10%, 90% {
+    transform: translate3d(-1px, 0, 0);
+  }
+
+  20%, 80% {
+    transform: translate3d(2px, 0, 0);
+  }
+
+  30%, 50%, 70% {
+    transform: translate3d(-4px, 0, 0);
+  }
+
+  40%, 60% {
+    transform: translate3d(4px, 0, 0);
+  }
 }
 
 .header {

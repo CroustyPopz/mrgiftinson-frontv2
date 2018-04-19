@@ -18,8 +18,8 @@ class Welcome extends Component {
       <div className="Welcome">
         <div className="header">
           <img src={mascotte} className="mascotte" alt="mascotte" />
-          <div class="half">
-            <div class="comics-dialog">
+          <div className="half">
+            <div className="comics-dialog">
               <h2>Need to find a really good gift? I'm here!</h2>
             </div>
           </div>

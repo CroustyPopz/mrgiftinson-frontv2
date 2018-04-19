@@ -6,7 +6,11 @@ import logo from '../../public/gift-icon.png';
 class Ask extends Component {
   constructor(props) {
     super(props);
+    this.state = {
+      question: <h2>{"What do you think about "}<span className="topic">{this.props.topic}</span>?</h2>
+    };
     this.handleClick = this.handleClick.bind(this);
+    this.openGift = this.openGift.bind(this);
   }
 
   renderAnswers() {
@@ -15,6 +19,11 @@ class Ask extends Component {
         <h2>{answer}</h2>
       </div>
     );
+  }
+
+  openGift(e) {
+    this.setState({question: "Answer me first!" + "" + this.state.question });
+    this.setState({question: <h2>{"Answer me first!"}<br></br>{"What do you think about "}<span className="topic">{this.props.topic}</span>?</h2>})
   }
 
   handleClick(index) {
@@ -26,12 +35,12 @@ class Ask extends Component {
       <div className="Ask">
         <div className="header">
           <img src={mascotte} className="mascotte" alt="mascotte" />
-          <div class="half">
+          <div className="half">
             <div className="comics-dialog">
-              <h2>{this.props.question}</h2>
+              {this.state.question}
             </div>
           </div>
-          <img src={logo} className="logo" alt="logo" />
+          <img src={logo} className="logo" alt="logo" onClick={this.openGift} />
         </div>
         <div className="responses">
           {this.renderAnswers()}

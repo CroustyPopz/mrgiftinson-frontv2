@@ -20,7 +20,7 @@ class App extends Component {
       step: 'Welcome',
       steps: {
         'Welcome': <Welcome onSelectAnswer={this.handleAnswer} />,
-        'Ask': <Ask onSelectAnswer={this.handleAnswer} question="Does your target like puzzle game?" answers={['Yes', 'No', 'Maybe']} />,
+        'Ask': <Ask onSelectAnswer={this.handleAnswer} topic="puzzle game" answers={['I like it!', 'Not interested...']} />,
         'Result': <Result onSelectAnswer={this.handleAnswer} />
       }
     };
@@ -45,7 +45,7 @@ class App extends Component {
       <div className="App">
         <div className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
-          <h2 className="header-title" >Welcome to Mr.Giftinson</h2>
+          <h2 className="header-title" >Mr.Giftinson</h2>
         </div>
         <div className="App-body">
           {this.getCurrentStep()}
