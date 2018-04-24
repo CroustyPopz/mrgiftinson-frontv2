@@ -7,27 +7,35 @@ class Ask extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      question: <h2>{"What do you think about "}<span className="topic">{this.props.topic}</span>?</h2>
+      question: <h2><span className="topic">{this.props.topic()}</span></h2>
     };
     this.handleClick = this.handleClick.bind(this);
+    this.updateTopic = this.updateTopic.bind(this);
     this.openGift = this.openGift.bind(this);
+  }
+
+  updateTopic() {
+    this.setState({ question: <h2><span className="topic">{this.props.topic()}</span></h2> })
   }
 
   renderAnswers() {
     return this.props.answers.map((answer) =>
       <div className="bubble" key={answer} onClick={(e) => this.handleClick(answer)}>
-        <h2>{answer}</h2>
+        { answer === "oui"
+          ? <h2>ça m'intéresse!</h2>
+          : <h2>ça ne m'intéresse pas!</h2>
+        }
       </div>
     );
   }
 
   openGift(e) {
     this.setState({question: "Answer me first!" + "" + this.state.question });
-    this.setState({question: <h2>{"Answer me first!"}<br></br>{"What do you think about "}<span className="topic">{this.props.topic}</span>?</h2>})
+    this.setState({question: <h2>{"Answer me first!"}<br></br><span className="topic">{this.props.topic()}</span></h2>})
   }
 
   handleClick(index) {
-    this.props.onSelectAnswer(index);
+    this.props.onSelectAnswer(index, this.updateTopic);
   }
 
   render() {

@@ -10,7 +10,7 @@ class Welcome extends Component {
   }
 
   handleClick(index) {
-    this.props.onSelectAnswer(index);
+    this.props.onSelectAnswer(index, null);
   }
 
   render() {
@@ -26,7 +26,7 @@ class Welcome extends Component {
           <img src={logo} className="logo" alt="logo" />
         </div>
         <div className="responses">
-          <div className="bubble" onClick={(e) => this.handleClick('start')}>
+          <div className="bubble" onClick={(e) => this.handleClick('begin')}>
             <h2>Start here!</h2>
           </div>
         </div>

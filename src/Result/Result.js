@@ -1,15 +1,33 @@
 import React, { Component } from 'react';
 import './Result.css';
 import mascotte from '../../public/mrgiftinson-mascotte.png';
+import GiftService from '../gift-service.js';
 
 class Result extends Component {
   constructor(props) {
     super(props);
     this.handleClick = this.handleClick.bind(this);
+    var data = this.fetchData();
+    console.log(data)
+    this.state = {
+      price: '33€',
+      name: 'cube'
+    }
+  }
+
+  fetchData(answer, callback) {
+    const url = 'http://mrgiftinson.com/api/index.php?function=getMetaDatasByProduct&ASIN=' + this.props.topic();
+    fetch(url)
+      .then( (response) => {
+        return response.json()
+      })
+      .then( (json) => {
+        return json["data"];
+      });
   }
 
   handleClick(index) {
-    this.props.onSelectAnswer(index);
+    this.props.onSelectAnswer(index, null);
   }
 
   goTo(url) {
@@ -23,7 +41,7 @@ class Result extends Component {
           <img src={mascotte} className="mascotte" alt="mascotte" />
           <div className="half">
             <div className="comics-dialog">
-              <h2>What do you think about this gift?</h2>
+              <h2>Que pensez vous de ?</h2>
             </div>
           </div>
           <div className="">

@@ -5,32 +5,44 @@ import Welcome from '../Welcome/Welcome';
 import Ask from '../Ask/Ask';
 import Result from '../Result/Result';
 
-function fetchData(answer) {
-  const url = 'http://mrgiftinson.com/api/index.php?function=getNewStep&reponse=' + answer;
-  fetch(url)
-  .then(function(response) {console.log(response)})
-  .catch(function(error) {error})
-}
-
 class App extends Component {
   constructor(props) {
     super(props);
-    this.handleAnswer = this.handleAnswer.bind(this);
+    this.fetchData = this.fetchData.bind(this);
+    this.getTopic = this.getTopic.bind(this);
     this.state = {
       step: 'Welcome',
       steps: {
-        'Welcome': <Welcome onSelectAnswer={this.handleAnswer} />,
-        'Ask': <Ask onSelectAnswer={this.handleAnswer} topic="puzzle game" answers={['I like it!', 'Not interested...']} />,
-        'Result': <Result onSelectAnswer={this.handleAnswer} />
+        'Welcome': <Welcome onSelectAnswer={this.fetchData} />,
+        'Ask': <Ask onSelectAnswer={this.fetchData} topic={this.getTopic} answers={['oui', 'non']} />,
+        'Result': <Result onSelectAnswer={this.fetchData} topic={this.getTopic} />
       }
     };
   }
 
-  handleAnswer(answer) {
-    console.log(answer);
-    fetchData(answer);
-    if (answer === 'start' || answer === 'no') {
+  fetchData(answer, callback) {
+    const url = 'http://mrgiftinson.com/api/index.php?function=getNewStep&reponse=' + answer;
+    fetch(url)
+      .then( (response) => {
+        return response.json()
+      })
+      .then( (json) => {
+        console.log(json)
+        this.setState({ "data": json["data"]["question"] });
+        this.handleAnswer(callback);
+      });
+  }
+
+  getTopic() {
+    return this.state["data"];
+  }
+
+  handleAnswer(callback) {
+    var n = this.state["data"].indexOf('?')
+
+    if (n > '0') {
       this.setState({step: 'Ask'})
+      if(callback) callback();
     } else {
       this.setState({step: 'Result'})
     }
